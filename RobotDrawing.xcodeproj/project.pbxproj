@@ -16,6 +16,7 @@
 		1D66973E223952E6002917C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D66973D223952E6002917C3 /* main.m */; };
 		1D669748223952E6002917C3 /* RobotDrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D669747223952E6002917C3 /* RobotDrawingTests.m */; };
 		1D669753223952E6002917C3 /* RobotDrawingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D669752223952E6002917C3 /* RobotDrawingUITests.m */; };
+		1D66976222395308002917C3 /* WritingArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D66976122395308002917C3 /* WritingArea.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		1D66974E223952E6002917C3 /* RobotDrawingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RobotDrawingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D669752223952E6002917C3 /* RobotDrawingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RobotDrawingUITests.m; sourceTree = "<group>"; };
 		1D669754223952E6002917C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D66976022395308002917C3 /* WritingArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WritingArea.h; sourceTree = "<group>"; };
+		1D66976122395308002917C3 /* WritingArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WritingArea.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				1D66972C223952E3002917C3 /* AppDelegate.m */,
 				1D66972E223952E3002917C3 /* ViewController.h */,
 				1D66972F223952E3002917C3 /* ViewController.m */,
+				1D66976022395308002917C3 /* WritingArea.h */,
+				1D66976122395308002917C3 /* WritingArea.m */,
 				1D669731223952E3002917C3 /* Main.storyboard */,
 				1D669737223952E6002917C3 /* Assets.xcassets */,
 				1D669739223952E6002917C3 /* LaunchScreen.storyboard */,
@@ -266,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D669730223952E3002917C3 /* ViewController.m in Sources */,
+				1D66976222395308002917C3 /* WritingArea.m in Sources */,
 				1D66972D223952E3002917C3 /* AppDelegate.m in Sources */,
 				1D66973E223952E6002917C3 /* main.m in Sources */,
 				1D669736223952E3002917C3 /* RobotDrawing.xcdatamodeld in Sources */,
@@ -448,7 +454,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goeum.RobotDrawing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -465,7 +471,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goeum.RobotDrawing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
