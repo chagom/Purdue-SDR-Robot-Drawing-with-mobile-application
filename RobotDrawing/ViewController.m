@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    // working git.. 
     self.panelWidth = self.writingPanel.frame.size.width;
     self.panelHeight = self.writingPanel.frame.size.height;
     
