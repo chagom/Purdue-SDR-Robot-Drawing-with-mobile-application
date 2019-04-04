@@ -22,5 +22,7 @@
 #pragma mark Private Helper function
 CGPoint midPoint(CGPoint p1, CGPoint p2);
 
+- (id)initWithFrame:(CGRect)frame;
+
 @end
 

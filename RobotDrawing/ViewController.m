@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    // working git.. 
+    // working git..
     self.panelWidth = self.writingPanel.frame.size.width;
     self.panelHeight = self.writingPanel.frame.size.height;
     
@@ -41,29 +41,44 @@
     [self.writingPanel setLineWidth:8.0f];
 }
 
-- (void)calculateCoordinate
-{
-    
-    
-    
-    /*
-     return coordArr which has relative coordinatesl;
-     */
+- (IBAction)btClickedReset:(id)sender {
+    self.drawingData = [NSArray array];
+    self.writingPanel = [self.writingPanel initWithFrame:self.writingPanel.frame];
 }
 
-
-- (void)sendCoordinateComposition
+- (NSString *)getJsonSerializedType:(NSArray *)input
 {
-    /*
-     TODO: Calculate relative coordinates
-     */
-    ;
+    NSError *error = nil;
+    NSMutableArray *wrapper = [NSMutableArray array];
+    NSMutableDictionary *arrToDictionary = [NSMutableDictionary dictionary];
     
+    for (NSArray *item in input)
+    {
+        NSString *separator = @":\n";
+        [arrToDictionary setValue:[item objectAtIndex:0] forKey:@"thickness"];
+        NSString *pathTemp = [NSString stringWithFormat:@"%@", [item objectAtIndex:1]];
+        [arrToDictionary setValue:[pathTemp componentsSeparatedByString:separator].lastObject forKey:@"path"];
+        [wrapper addObject:arrToDictionary];
+    }
+
+    
+    NSLog(@"created dictionary: %@", wrapper);
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:wrapper options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    
+    return jsonString;
 }
+
 - (IBAction)btnTouchedSend:(id)sender {
     
-    NSLog(@"%@", self.drawingData);
+    NSString *jsonString = [self getJsonSerializedType:self.drawingData];
     
+//    NSLog(@"NSHomeDirectory : %@", NSHomeDirectory()); // temporary path
+    NSString *directory = @"/Users/goeum/Desktop/SDR/file.json";
+    [jsonString writeToFile:directory atomically:NO encoding:NSUTF8StringEncoding error:NULL];
 }
+
 
 @end

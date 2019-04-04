@@ -16,6 +16,7 @@ static const CGFloat kPointMinDistanceSquared = kPointMinDistance * kPointMinDis
 
 @property (nonatomic) CGMutablePathRef path;
 @property (nonatomic) NSMutableArray *arrPath;
+@property (nonatomic) NSMutableArray *arrDrawingData;
 
 @end
 
@@ -30,6 +31,7 @@ static const CGFloat kPointMinDistanceSquared = kPointMinDistance * kPointMinDis
         _lineColor = [UIColor blackColor];
         _empty = YES;
         _arrPath = [[NSMutableArray alloc] init];
+        _arrDrawingData = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -43,6 +45,7 @@ static const CGFloat kPointMinDistanceSquared = kPointMinDistance * kPointMinDis
         self.lineColor = [UIColor blackColor];
         self.empty = YES;
         self.arrPath = [[NSMutableArray alloc] init];
+        self.arrDrawingData = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -135,29 +138,19 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-//    NSLog(@"%@", _path);
-    
     ViewController *vc = (ViewController *)[self.superview nextResponder];
-    NSError *error;
-    
-    [self.arrPath addObject:[UIBezierPath bezierPathWithCGPath:_path]];
-    
-    
     UIBezierPath *bPath = [UIBezierPath bezierPathWithCGPath:_path];
-    struct CGPath *convertedPath = bPath.CGPath;
     
+    NSMutableArray *temp = [NSMutableArray array];
+    [temp addObject:[NSString stringWithFormat:@"%f", self.lineWidth]];
+    [temp addObject:bPath.CGPath]; // ignore warning..
     
-    NSValue *pathValue = [NSValue valueWithPointer:_path];
-    [_arrPath addObject:pathValue];
-    
-    NSLog(@"%@", [self.arrPath firstObject]);
-    
-    
-    
-    
+    //["thickness", "bPath.CGPath"]
+    [self.arrDrawingData addObject:temp];
+
+    vc.drawingData = self.arrDrawingData;
     
     
 }
-
 
 @end

@@ -11,15 +11,13 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet WritingArea *writingPanel;
+@property (nonatomic) IBOutlet WritingArea *writingPanel;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnThinLine;
 @property (weak, nonatomic) IBOutlet UIButton *btnRegularLine;
 @property (weak, nonatomic) IBOutlet UIButton *btnThickLine;
 @property (nonatomic) CGMutablePathRef givenPath;
-@property (nonatomic) NSData *drawingData;
-
--(void) sendCoordinateComposition;
+@property (nonatomic, strong) NSArray *drawingData;
 
 @end
 
