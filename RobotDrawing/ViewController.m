@@ -49,7 +49,7 @@
 - (NSString *)getJsonSerializedType:(NSArray *)input
 {
     NSError *error = nil;
-    NSMutableArray *wrapper = [NSMutableArray array];
+    NSMutableArray *items = [NSMutableArray array];
     NSMutableDictionary *arrToDictionary = [NSMutableDictionary dictionary];
     
     for (NSArray *item in input)
@@ -58,11 +58,12 @@
         [arrToDictionary setValue:[item objectAtIndex:0] forKey:@"thickness"];
         NSString *pathTemp = [NSString stringWithFormat:@"%@", [item objectAtIndex:1]];
         [arrToDictionary setValue:[pathTemp componentsSeparatedByString:separator].lastObject forKey:@"path"];
-        [wrapper addObject:arrToDictionary];
+        [items addObject:arrToDictionary];
     }
-
     
-    NSLog(@"created dictionary: %@", wrapper);
+    NSMutableDictionary *wrapper = [NSMutableDictionary dictionary];
+    [wrapper setValue:[NSString stringWithFormat:@"%lu", (unsigned long)items.count] forKey:@"items"];
+    [wrapper setValue:items forKey:@"information"];
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:wrapper options:NSJSONWritingPrettyPrinted error:&error];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];

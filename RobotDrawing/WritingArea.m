@@ -139,6 +139,8 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     ViewController *vc = (ViewController *)[self.superview nextResponder];
+    
+    NSLog(@"%@", _path);
     UIBezierPath *bPath = [UIBezierPath bezierPathWithCGPath:_path];
     
     NSMutableArray *temp = [NSMutableArray array];
