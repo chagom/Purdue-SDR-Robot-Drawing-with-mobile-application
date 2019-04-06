@@ -17,7 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnRegularLine;
 @property (weak, nonatomic) IBOutlet UIButton *btnThickLine;
 @property (nonatomic) CGMutablePathRef givenPath;
-@property (nonatomic, strong) NSArray *drawingData;
+@property (nonatomic, strong) NSMutableArray *drawingData;
+
+- (void)addDrawingDataFromWritingArea:(NSMutableArray *)input;
 
 @end
 

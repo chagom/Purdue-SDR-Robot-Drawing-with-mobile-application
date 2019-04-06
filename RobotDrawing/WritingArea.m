@@ -139,8 +139,6 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     ViewController *vc = (ViewController *)[self.superview nextResponder];
-    
-    NSLog(@"%@", _path);
     UIBezierPath *bPath = [UIBezierPath bezierPathWithCGPath:_path];
     
     NSMutableArray *temp = [NSMutableArray array];
@@ -148,9 +146,8 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
     [temp addObject:bPath.CGPath]; // ignore warning..
     
     //["thickness", "bPath.CGPath"]
-    [self.arrDrawingData addObject:temp];
-
-    vc.drawingData = self.arrDrawingData;
+    [vc addDrawingDataFromWritingArea:temp];
+    
     
     
 }
