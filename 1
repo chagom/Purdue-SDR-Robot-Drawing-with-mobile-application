@@ -24,29 +24,28 @@ def drive(posnr, wdia, vL, vR, t, Cangle):
 
     return newposn
 
-ang = 1*math.atan2(1000, 0)
-trajectory = collections.deque([[1.0,0.0, ang],[1.0,1000.0, ang]])
+trajectory = collections.deque([[1.0,0.0,math.degrees(0.0)],[1.0,100.0, math.degrees(0.0)]])
 
 distance = math.sqrt((trajectory[1][0]-trajectory[0][0])**2 + (trajectory[0][1] - trajectory[1][1])**2)
 print(distance)
 dt = 1
-Tsim = 1000
-d = 4#robot size
+Tsim = math.ceil(distance)
+d = 4 #robot size
 
 k_rho = 0.05
 k_alpha = 0.8
 k_beta = -0.008
 
+j= 1
 for j in range(0,len(trajectory)-1):
     temp = trajectory.popleft()
     C_Robot_Pos = temp[0:2]
-    C_Robot_Angr = temp[2]
-    C_Robot_Angd = math.degrees(temp[2])
+    C_Robot_Angr = math.radians(temp[2])
+    C_Robot_Angd = temp[2]
 
 for i in range(0, Tsim, dt):
     delta_x = trajectory[0][0] - C_Robot_Pos[0]
     delta_y = trajectory[0][1] - C_Robot_Pos[1]
-    print(delta_x)
     rho = math.sqrt(delta_x**2 + delta_y**2)
     alpha = -C_Robot_Angr + math.atan2(delta_y, delta_x)
 
@@ -60,13 +59,20 @@ for i in range(0, Tsim, dt):
     beta = -C_Robot_Angr-alpha
 
     v = k_rho*rho
-    w = k_alpha*alpha + k_beta*beta
-    vL = (v + d/2*w)
-    vR = (v - d/2*w)
+    w = k_alpha*alpha+k_beta*beta
+    vL = v+ d/2*w
+    vR = v - d/2*w
+    vL = vL
+    vR = vR
+    if vL != vR:
+        vL = vR
     hamster.wheels(vL,vR)
+
+    j = j + 1
 
     posr = C_Robot_Pos + [C_Robot_Angr]
     posr = drive(posr, d, vL, vR, dt, posr[2])
     C_Robot_Pos = [posr[0], posr[1]]
     C_Robot_Angr = posr[2]
-    wait(50)
+
+    wait(500)
