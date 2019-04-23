@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f96e2f12-0353-4aa3-96b1-28c132840911" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/@" beforeDir="false" afterPath="$PROJECT_DIR$/@" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RobotDrawing/RobotDrawing.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/RobotDrawing/RobotDrawing.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RobotDrawing/RobotDrawing/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/RobotDrawing/RobotDrawing/Base.lproj/Main.storyboard" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RobotDrawing/RobotDrawing/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/RobotDrawing/RobotDrawing/Info.plist" afterDir="false" />
@@ -14,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/drawing-bot/Robot.py" beforeDir="false" afterPath="$PROJECT_DIR$/drawing-bot/Robot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/drawing-bot/Slicer.py" beforeDir="false" afterPath="$PROJECT_DIR$/drawing-bot/Slicer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/drawing-bot/Vector_to_Coordinate.py" beforeDir="false" afterPath="$PROJECT_DIR$/drawing-bot/Vector_to_Coordinate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/move_with_PID.py" beforeDir="false" afterPath="$PROJECT_DIR$/move_with_PID.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,11 +95,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="456" />
-    <option name="y" value="136" />
-    <option name="width" value="1224" />
-    <option name="height" value="836" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="949" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -124,6 +121,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -203,12 +201,12 @@
       <workItem from="1555796525342" duration="11108000" />
       <workItem from="1555813910263" duration="3568000" />
       <workItem from="1555873340100" duration="142000" />
-      <workItem from="1555896643230" duration="12394000" />
+      <workItem from="1555896643230" duration="12629000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27212000" />
+    <option name="totallyTimeSpent" value="27447000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
